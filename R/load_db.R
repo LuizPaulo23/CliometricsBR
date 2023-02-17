@@ -1,13 +1,13 @@
 #' @title Base de dados do pacote CliometricsBR
 #' @name load_db
 #'
-#' @description A função representa a importação da base de dados utilizada no pacote
+#' @description A função representa a importação da base de dados local (pasta {R}) utilizada no pacote. Portanto, os dados utilizados no CliometricsBR que são derivados de Web-Scraping não estão disponíveis no presente banco de dados local. Assim, possibilitando um melhor gerenciamento do pacote.
 #'
 #' @author Luiz Paulo Tavares Gonçalves
 #'
 #' @details
 #'
-#' @return Retorna um data.frame com a base de dados bruta utilizada no pacote
+#' @return Retorna um data.frame com a base de dados bruta utilizada no pacote, com exceção dos dados de Web-Scraping.
 #'
 #' @examples
 #' \dontrun{
@@ -33,6 +33,7 @@ load_db <- function() {
      }
 
 }
+
 
 
 
