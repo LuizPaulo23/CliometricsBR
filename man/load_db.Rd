@@ -7,10 +7,10 @@
 load_db()
 }
 \value{
-Retorna um data.frame com a base de dados bruta utilizada no pacote
+Retorna um data.frame com a base de dados bruta utilizada no pacote, com exceção dos dados de Web-Scraping.
 }
 \description{
-A função representa a importação da base de dados utilizada no pacote
+A função representa a importação da base de dados local (pasta {R}) utilizada no pacote. Portanto, os dados utilizados no CliometricsBR que são derivados de Web-Scraping não estão disponíveis no presente banco de dados local. Assim, possibilitando um melhor gerenciamento do pacote.
 }
 \examples{
 \dontrun{
