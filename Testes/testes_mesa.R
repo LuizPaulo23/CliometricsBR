@@ -11,8 +11,7 @@ library(rvest)
 library(httr)
 
 # Puxando todas as séries de exportação -------------------------------------------------------
-# C
-liometricsBR::load_db()
+# CliometricsBR::load_db()
 
 exports_all = CliometricsBR::get_exports(series = "all",
                                          start = 1821, end = 1900) %>% glimpse()
@@ -20,8 +19,8 @@ exports_all = CliometricsBR::get_exports(series = "all",
 # Importando produtos selecionados = Sugar, Coffee e Cotton - de 1821 a 1855 -----------------------
 
 exports_select = CliometricsBR::get_exports(series = c("Sugar",
-                                          "Coffee", "Cotton"),
-                                          start = 1821,  end = 1855) %>% glimpse()
+                                                       "Coffee", "Cotton"),
+                                            start = 1821,  end = 1855) %>% glimpse()
 
 # Testando as verificações de datas -------------------------------------------------------------
 
@@ -77,4 +76,15 @@ region_slave_all = CliometricsBR::get_slavery(region = "all") %>% dplyr::glimpse
 # Regiões selecionadas
 
 region_slave_select = CliometricsBR::get_slavery(region = c("Bahia", "Total"))
+
+# Apenas um região
+
+region_slave = CliometricsBR::get_slavery(region = "Total")
+
+# Passando nome errado
+
+region_slaveBUG = CliometricsBR::get_slavery(region = c("Bahia", "vvvl"))
+
+# Corrigir Bug
+
 
