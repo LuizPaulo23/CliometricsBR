@@ -11,7 +11,8 @@ library(rvest)
 library(httr)
 
 # Puxando todas as séries de exportação -------------------------------------------------------
-# CliometricsBR::load_db()
+# C
+liometricsBR::load_db()
 
 exports_all = CliometricsBR::get_exports(series = "all",
                                          start = 1821, end = 1900) %>% glimpse()
@@ -68,11 +69,7 @@ teste_mesa_filter = get.DBMaddison(country = c("USAfdsf", "BRAwww", "AsssRG"),
 # Tudo errado, retorna vazio
 # !Corrigir - lembrar que está formato de painel
 
-
-
-
-
-# Slave
+# Slave --------------------------------------------------------------------------------------
 
 # Todas as regiões
 region_slave_all = CliometricsBR::get_slavery(region = "all") %>% dplyr::glimpse()
