@@ -21,16 +21,16 @@
 load_db <- function() {
 
   Db_cliometrics <- base::readRDS(system.file("data/data.rds",
-                                  package = "CliometricsBR"))
+                                              package = "CliometricsBR"))
 
   if(!is.null(Db_cliometrics)){
     return(Db_cliometrics)
 
   }else{
 
-       stop("ERRO: Base de dados {Db_cliometrics} não encontrada")
+    stop("ERRO: Base de dados {Db_cliometrics} não encontrada")
 
-     }
+  }
 
 }
 
