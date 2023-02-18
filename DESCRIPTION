@@ -16,4 +16,5 @@ Imports:
   dplyr,
   janitor,
   httr,
-  readxl
+  readxl, 
+  stats
