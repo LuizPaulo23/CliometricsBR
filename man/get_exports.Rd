@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_exports.R
 \name{get_exports}
 \alias{get_exports}
-\title{Dados de exportações}
+\title{Dados - Exportações}
 \usage{
 get_exports(series = as.character(), start = as.numeric(), end = as.numeric())
 }
@@ -26,6 +26,8 @@ As séries disponíveis na função \code{get_exports} são as seguintes:
 \code{Tobacco};
 \code{Coffee} e
 \code{Fob}.
+
+Respectivamente, exportações de: Erva-mate, Açúcar, Algodão, Cacau, Tabaco, Café e exportações em FOB (Free on Board ou Livre a Bordo do Navio).
 }
 \examples{
 \dontrun{
