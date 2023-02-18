@@ -1,11 +1,19 @@
 Package: CliometricsBR
 Type: Package
-Title: What the Package Does (Title Case)
+Title: CliometricsBR
 Version: 0.1.0
 Author: Luiz Paulo Tavares Gonçalves 
 Maintainer: The package maintainer <luizpauloueg@gmail.com>
-Description: 
+Description: The package {CliometricsBR} aims to provide a collection of socioeconomic data from Brazil, compiling data from the Imperial Brazil period to the Republican period. Additionally, it includes data on slavery available from 1800 to the mid-1850s (when the Eusébio de Queiroz Law put an end to the transatlantic slave trade).
 License: 
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.2.2
+Imports:
+  tidyverse,
+  tibble,
+  rvest,
+  dplyr,
+  janitor,
+  httr,
+  readxl
