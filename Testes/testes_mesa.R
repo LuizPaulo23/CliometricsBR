@@ -8,6 +8,7 @@ graphics.off()
 library(CliometricsBR)
 library(tidyverse)
 library(rvest)
+library(httr)
 
 # Puxando todas as séries de exportação -------------------------------------------------------
 # CliometricsBR::load_db()
@@ -43,6 +44,33 @@ CliometricsBR::get_exports(series = "zwqwqw", start = 1821,  end = 1855)
 
 CliometricsBR::get_exports(series = "sadfsdfe", start = 1821,  end = 1855)
 
+# Maddison Project Database 2020 -------------------------------------------------------------------
+
+teste_mesa_all = get.DBMaddison(country = "all",
+                                start = 1800, end = 1900)
+
+teste_mesa_filter = get.DBMaddison(country = c("USA", "BRA", "ARG"),
+                                   start = 1800, end = 1900)
+
+
+teste_mesa_all = get.DBMaddison(country = "BRA")
+
+# Tentar quebrar a função passando bug em series ------------------------------------------
+
+teste_mesa_filter = get.DBMaddison(country = c("USAfdsf", "BRAwww", "ARG"),
+                                   start = 1800, end = 1900)
+# Se passar dois nomes errados, retorna apenas o correto -- !Corrigir!
+# Bug /// Correção -------------------------------------------------------------------------------------
+
+teste_mesa_filter = get.DBMaddison(country = c("USAfdsf", "BRAwww", "AsssRG"),
+                                   start = 1800, end = 1900)
+
+# Tudo errado, retorna vazio
+# !Corrigir - lembrar que está formato de painel
+
+
+
+
 
 # Slave
 
@@ -52,19 +80,4 @@ region_slave_all = CliometricsBR::get_slavery(region = "all") %>% dplyr::glimpse
 # Regiões selecionadas
 
 region_slave_select = CliometricsBR::get_slavery(region = c("Bahia", "Total"))
-
-
-teste_mesa_all = get.DBMaddison(country = "all",
-                                start = 1800, end = 1900)
-
-teste_mesa_filter = get.DBMaddison(country = c("USA", "BRA", "ARG"),
-                                   start = 1800, end = 1900)
-
-
-teste_mesa_all = get.DBMaddison(country = "BRA",
-                                start = 1800,
-                                end = 1900)
-
-
-
 
