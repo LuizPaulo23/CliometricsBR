@@ -122,27 +122,31 @@ teste_mesa_all = get.DBMaddison(country = <span class="hljs-string">"all"</span>
 <td>readxl</td>
 <td>1.4.1</td>
 </tr>
+<tr>
+<td>stats</td>
+<td>4.2.2</td>
+</tr>
 </tbody>
 </table>
-<h1 class="code-line" data-line-start=123 data-line-end=124 ><a id="_Fonte_dos_dados_123"></a>👥 Fonte dos dados</h1>
-<p class="has-line-data" data-line-start="125" data-line-end="126">As fontes detalhadas dos dados utilizados no pacote {CliometricsBR} podem ser visualizadas na pasta {Fontes} do projeto no <a href="https://github.com/LuizPaulo23/CliometricsBR">Github</a>. Em linhas gerais são:</p>
+<h1 class="code-line" data-line-start=125 data-line-end=126 ><a id="_Fonte_dos_dados_125"></a>👥 Fonte dos dados</h1>
+<p class="has-line-data" data-line-start="127" data-line-end="128">As fontes detalhadas dos dados utilizados no pacote {CliometricsBR} podem ser visualizadas na pasta {Fontes} do projeto no <a href="https://github.com/LuizPaulo23/CliometricsBR">Github</a>. Em linhas gerais são:</p>
 <ul>
-<li class="has-line-data" data-line-start="127" data-line-end="128">Exportação ~&gt; <a href="http://www.ipeadata.gov.br/Default.aspx">IPEAdata</a></li>
-<li class="has-line-data" data-line-start="128" data-line-end="129">Escravidão ~&gt; <a href="https://www.slavevoyages.org/">Slave Voyages</a></li>
-<li class="has-line-data" data-line-start="129" data-line-end="130">Maddison Project Database 2020 ~&gt; <a href="https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020">Projecto Maddison</a></li>
-<li class="has-line-data" data-line-start="130" data-line-end="132">Cotação/Preço ~&gt; <a href="http://www.ipeadata.gov.br/Default.aspx">IPEAdata</a></li>
+<li class="has-line-data" data-line-start="129" data-line-end="130">Exportação ~&gt; <a href="http://www.ipeadata.gov.br/Default.aspx">IPEAdata</a></li>
+<li class="has-line-data" data-line-start="130" data-line-end="131">Escravidão ~&gt; <a href="https://www.slavevoyages.org/">Slave Voyages</a></li>
+<li class="has-line-data" data-line-start="131" data-line-end="132">Maddison Project Database 2020 ~&gt; <a href="https://www.rug.nl/ggdc/historicaldevelopment/maddison/releases/maddison-project-database-2020">Projecto Maddison</a></li>
+<li class="has-line-data" data-line-start="132" data-line-end="134">Cotação/Preço ~&gt; <a href="http://www.ipeadata.gov.br/Default.aspx">IPEAdata</a></li>
 </ul>
-<p class="has-line-data" data-line-start="132" data-line-end="133">Na próxima versão, espera-se migrar as fontes detalhadas para a documentação fora do README ou de pastas secundárias, assim, facilitando a usabilidade  do pacote!</p>
-<h1 class="code-line" data-line-start=134 data-line-end=135 ><a id="_Como_contribuir_134"></a>🫂 Como contribuir</h1>
+<p class="has-line-data" data-line-start="134" data-line-end="135">Na próxima versão, espera-se migrar as fontes detalhadas para a documentação fora do README ou de pastas secundárias, assim, facilitando a usabilidade  do pacote!</p>
+<h1 class="code-line" data-line-start=136 data-line-end=137 ><a id="_Como_contribuir_136"></a>🫂 Como contribuir</h1>
 <ul>
-<li class="has-line-data" data-line-start="136" data-line-end="137">Faça um fork do repositório;</li>
-<li class="has-line-data" data-line-start="137" data-line-end="138">Entre no sua página do GitHub e faça um clone do seu fork;</li>
-<li class="has-line-data" data-line-start="138" data-line-end="139">Crie uma branch com o nome da sua feature: git chechout -b feat/minhaFeature;</li>
-<li class="has-line-data" data-line-start="139" data-line-end="140">Faça as alterações necessárias no código ou na documentação;</li>
-<li class="has-line-data" data-line-start="140" data-line-end="141">Faça um push para a sua branch: git push origin feat/minhaFeature;</li>
-<li class="has-line-data" data-line-start="141" data-line-end="142">Agora é só abrir um pull request no repositório que você fez o fork e assim que acontecer o merge sua Issue será fechada e suas alterações irão fazer parte do projeto;</li>
-<li class="has-line-data" data-line-start="142" data-line-end="143">Depois que o merge da sua pull request for feito, você pode deletar a sua branch.</li>
-<li class="has-line-data" data-line-start="143" data-line-end="144"><strong>Obrigado por contribuir!</strong></li>
+<li class="has-line-data" data-line-start="138" data-line-end="139">Faça um fork do repositório;</li>
+<li class="has-line-data" data-line-start="139" data-line-end="140">Entre no sua página do GitHub e faça um clone do seu fork;</li>
+<li class="has-line-data" data-line-start="140" data-line-end="141">Crie uma branch com o nome da sua feature: git chechout -b feat/minhaFeature;</li>
+<li class="has-line-data" data-line-start="141" data-line-end="142">Faça as alterações necessárias no código ou na documentação;</li>
+<li class="has-line-data" data-line-start="142" data-line-end="143">Faça um push para a sua branch: git push origin feat/minhaFeature;</li>
+<li class="has-line-data" data-line-start="143" data-line-end="144">Agora é só abrir um pull request no repositório que você fez o fork e assim que acontecer o merge sua Issue será fechada e suas alterações irão fazer parte do projeto;</li>
+<li class="has-line-data" data-line-start="144" data-line-end="145">Depois que o merge da sua pull request for feito, você pode deletar a sua branch.</li>
+<li class="has-line-data" data-line-start="145" data-line-end="146"><strong>Obrigado por contribuir!</strong></li>
 </ul>
-<h1 class="code-line" data-line-start=146 data-line-end=147 ><a id="_Autor_146"></a>🤠 Autor</h1>
-<p class="has-line-data" data-line-start="148" data-line-end="149"><a href="mailto:luizpauloueg@gmail.com"><img src="https://img.shields.io/badge/-luizpauloueg@gmail.com.com-c14438?style=flat-square&amp;logo=Gmail&amp;logoColor=white&amp;link=mailto:tgmarinho@gmail.com" alt="Gmail Badge"></a></p>
+<h1 class="code-line" data-line-start=148 data-line-end=149 ><a id="_Autor_148"></a>🤠 Autor</h1>
+<p class="has-line-data" data-line-start="150" data-line-end="151"><a href="mailto:luizpauloueg@gmail.com"><img src="https://img.shields.io/badge/-luizpauloueg@gmail.com.com-c14438?style=flat-square&amp;logo=Gmail&amp;logoColor=white&amp;link=mailto:tgmarinho@gmail.com" alt="Gmail Badge"></a></p>
