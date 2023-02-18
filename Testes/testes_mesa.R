@@ -2,13 +2,15 @@
 
 rm(list = ls())
 graphics.off()
-
-# Packages/bibliotecas
-
 library(CliometricsBR)
+
+# Dependências //Packages
+
 library(tidyverse)
 library(rvest)
 library(httr)
+library(tibble)
+library(dplyr)
 
 # Puxando todas as séries de exportação -------------------------------------------------------
 # test =  CliometricsBR::load_db()
@@ -52,7 +54,6 @@ teste_mesa_all = get.DBMaddison(country = "all",
 teste_mesa_filter = get.DBMaddison(country = c("USA", "BRA", "ARG"),
                                    start = 1800, end = 1900)
 
-
 teste_mesa_all = get.DBMaddison(country = "BRA")
 
 # Tentar quebrar a função passando bug em series ------------------------------------------
@@ -86,5 +87,18 @@ region_slave = CliometricsBR::get_slavery(region = "Total")
 region_slaveBUG = CliometricsBR::get_slavery(region = c("Bahia", "vvvl"))
 
 # Corrigir Bug
+
+# Tentar instalar o pacote
+#rm(list = ls())
+#graphics.off()
+# install.packages("devtools") // devtools devidamente instalado
+#devtools::install_github("LuizPaulo23/CliometricsBR", ref = "main")
+#library(CliometricsBR)
+
+# Oganizando DB do Cliometrics
+
+#data = readxl::read_excel("DB_pkg.xls") %>% select(-RJ) %>%
+#              saveRDS("data.rds")
+
 
 
