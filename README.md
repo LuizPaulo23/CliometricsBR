@@ -37,7 +37,7 @@
 <li class="has-line-data" data-line-start="40" data-line-end="41">Unspecified (1800-1851);</li>
 <li class="has-line-data" data-line-start="41" data-line-end="43">Total (1800-1851).</li>
 </ul>
-<p class="has-line-data" data-line-start="43" data-line-end="44">Em terceiro, representa os dados do Maddison Project Database 2020. No {CliometricsBR} conta com sua versão 2020 ataualizada com os dados:</p>
+<p class="has-line-data" data-line-start="43" data-line-end="44">Em terceiro, representa os dados do Maddison Project Database 2020. No {CliometricsBR} conta com sua versão 2020 atualizada com os dados:</p>
 <ul>
 <li class="has-line-data" data-line-start="45" data-line-end="46">gdpcc</li>
 <li class="has-line-data" data-line-start="46" data-line-end="48">population</li>
