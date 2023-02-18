@@ -100,5 +100,14 @@ region_slaveBUG = CliometricsBR::get_slavery(region = c("Bahia", "vvvl"))
 #data = readxl::read_excel("DB_pkg.xls") %>% select(-RJ) %>%
 #              saveRDS("data.rds")
 
+# Teste Prices ---------------------------------------------------------------------------
+
+teste_prices_all = CliometricsBR::get_prices(units = "all")
+
+teste_prices_select = CliometricsBR::get_prices(units = "Kilo")
+
+teste_prices= CliometricsBR::get_prices(units = c("Kilo", "Bag"))
+
+teste_pricesBUG = CliometricsBR::get_prices(units = c("zzzzzzzxs", "Bag"))
 
 
