@@ -11,7 +11,7 @@ library(rvest)
 library(httr)
 
 # Puxando todas as séries de exportação -------------------------------------------------------
-# CliometricsBR::load_db()
+# test =  CliometricsBR::load_db()
 
 exports_all = CliometricsBR::get_exports(series = "all",
                                          start = 1821, end = 1900) %>% glimpse()
