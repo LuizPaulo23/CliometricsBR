@@ -11,14 +11,14 @@
                           sapply(pkg, require, character.only = T)
  }
 
-
 packages <- c("tidyverse",
                "tibble",
                "rvest",
                "dplyr",
                "janitor",
                "httr",
-               "readxl")
+               "readxl",
+               "stats")
 
 # Instalando/Liberando
 
