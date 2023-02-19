@@ -31,6 +31,13 @@
 
 get_prices = function(units = as.character()){
 
+
+  if(length(units) == 0){
+
+    stop("ERRO: parâmentro units não encontrado")
+
+  }
+
   prices <- CliometricsBR::load_db() %>%
             dplyr::filter(Data >= 1808 &
                             Data <= 1900)
@@ -64,6 +71,8 @@ get_prices = function(units = as.character()){
 
 
 }
+
+
 
 
 
