@@ -41,6 +41,14 @@
 
 get_slavery <- function(region = as.character()){
 
+# Validação de parâmetro
+
+  if(length(region) == 0){
+
+    stop("ERRO: parâmentro region não encontrado")
+
+  }
+
       slavery = CliometricsBR::load_db() %>%
                 janitor::clean_names() %>%
                 dplyr::select(starts_with("slave"),

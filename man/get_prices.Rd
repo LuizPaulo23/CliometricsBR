@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_prices.R
 \name{get_prices}
 \alias{get_prices}
-\title{Maddison Project Database 2020}
+\title{Dados - Cotações/Preço}
 \usage{
 get_prices(units = as.character())
 }
