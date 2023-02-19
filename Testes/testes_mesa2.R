@@ -1,13 +1,13 @@
 # Testando a instalação, revisando documentação e bugs ///
+rm(list = ls())
 # Testando em ambiente limpo ----------------------------
-install.packages("devtools")
+# install.packages("devtools")
 # install.packages("devtools") // devtools devidamente instalado
-devtools::install_github("LuizPaulo23/CliometricsBR", dependencies = T)
+# devtools::install_github("LuizPaulo23/CliometricsBR", dependencies = T)
 library(CliometricsBR)
 CliometricsBR::load_db()
 
 #\\INSTALADO COM SUCESSO
-
 # REVISANDO DOCUMENTAÇÃO
 
 CliometricsBR::load_db() # okay
