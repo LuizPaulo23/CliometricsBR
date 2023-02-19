@@ -18,17 +18,13 @@ packages <- c("tidyverse",
                "janitor",
                "httr",
                "readxl",
-               "stats")
+               "stats",
+               "stringr",
+               "RSQLite")
 
 # Instalando/Liberando
 
-  if(!is.null(packages)){
-      library_packages(packages)
-    } else {
-
-      print("ERRO: vetor nulo")
-
-  }
+library_packages(packages)
 
 
 
