@@ -28,6 +28,15 @@ As quais representam o número estimado de escravos importados para cada região
 \examples{
 \dontrun{
 
+# Todas as regiões
+
+ region_slave_all = CliometricsBR::get_slavery(region = "all")
+
+
+region_slave_select = CliometricsBR::get_slavery(region = c("Bahia", "Total"))
+
+
+
 }
 
 }

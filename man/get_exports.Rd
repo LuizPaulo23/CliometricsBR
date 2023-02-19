@@ -32,8 +32,8 @@ Respectivamente, exportações de: Erva-mate, Açúcar, Algodão, Cacau, Tabaco,
 \examples{
 \dontrun{
 
-exports_all = get_exports(series = "all",
-                          start = 1821, end = 1900)
+exports_all = CliometricsBR::get_exports(series = "all",
+                                        start = 1821, end = 1900)
 
 # Importando produtos selecionados = Sugar, Coffee e Cotton
 # De 1821 a 1855

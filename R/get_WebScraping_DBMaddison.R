@@ -17,13 +17,23 @@
 #'
 #' @details
 #'
-#'  O Maddison Project Database fornece informações sobre crescimento econômico comparativo e níveis de renda no longo prazo. A versão 2020 deste banco de dados abrange 169 países e o período até 2018. Para questões não abordadas na documentação, entre em contato com ggdc @rug.nl .
-
+#'  O Maddison Project Database fornece informações sobre crescimento econômico comparativo e níveis de renda no longo prazo. A versão 2020 deste banco de dados abrange 169 países e o período até 2018.
+#'
 #' @return Retorna um data.frame com os series selecionadas
 #'
 #' @examples
 #' \dontrun{
 #'
+#'
+#' # Maddison Project Database 2020
+#'
+#' teste_mesa_all = CliometricsBR::get.DBMaddison(country = "all",
+#'                                                start = 1800, end = 1900)
+#'
+#' teste_mesa_filter = CliometricsBR::get.DBMaddison(country = c("USA", "BRA", "ARG"),
+#'                                                   start = 1850, end = 1973)
+#'
+#' teste_mesa_BRA= CliometricsBR::get.DBMaddison(country = "BRA")
 #'
 #' }
 #'
@@ -74,10 +84,13 @@ cat("Países selecionados:", input_country$country)
            }
 
 
-     teste = db_maddison %>%
+      db_maddison = db_maddison %>%
                     dplyr::filter(countrycode %in% c(input_country$country)) %>%
                     dplyr::filter(year >= start &
                                     year <= end)
+
+
+     return(db_maddison)
 
   }
 

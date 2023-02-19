@@ -13,7 +13,7 @@ get_prices(units = as.character())
 Retorna um data.frame com as unidades selecionadas
 }
 \description{
-A função retorna o preço do café - de 1808 a 1900 (ou seja, pegando o período anterior ao Brasil Império até a República)
+A função retorna o preço médio do café - de 1808 a 1900 (ou seja, pegando o período anterior ao Brasil Império até a República)
 
 Estão disponíveis na função o preço em quilo ou em sacas de 50kg
 }

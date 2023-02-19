@@ -2,7 +2,7 @@
 #'
 #' @name get_prices
 #'
-#' @description A função retorna o preço do café - de 1808 a 1900 (ou seja, pegando o período anterior ao Brasil Império até a República)
+#' @description A função retorna o preço médio do café - de 1808 a 1900 (ou seja, pegando o período anterior ao Brasil Império até a República)
 #'
 #' Estão disponíveis na função o preço em quilo ou em sacas de 50kg
 #'
@@ -44,6 +44,9 @@ get_prices = function(units = as.character()){
                             Kilo,
                             Bag)
 
+    return(prices)
+
+
   } else{
 
     if(any(!(unidade$units %in% colnames(prices[,2:3])))){
@@ -54,6 +57,8 @@ get_prices = function(units = as.character()){
 
     prices <-prices %>%
              dplyr::select(c(Data, unidade$units))
+
+    return(prices)
 
   }
 

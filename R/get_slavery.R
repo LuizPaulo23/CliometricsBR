@@ -25,6 +25,16 @@
 #' @examples
 #' \dontrun{
 #'
+#' # Todas as regiões
+#'
+#'  region_slave_all = CliometricsBR::get_slavery(region = "all")
+#'
+# # Regiões selecionadas
+#'
+#' region_slave_select = CliometricsBR::get_slavery(region = c("Bahia", "Total"))
+#'
+#'
+#'
 #' }
 #'
 #' @export
