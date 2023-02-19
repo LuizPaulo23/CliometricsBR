@@ -23,7 +23,7 @@ Retorna um data.frame com os series selecionadas
 \description{
 Maddison Project Database 2020 foi coletado via Web Sraping. As séries disponíveis na função \code{get.DBMaddison} são as seguintes:
 
-\code{gdpcc} e
+\code{gdppc} e
 \code{pop}.
 
 São respestivamente: Real GDP per capita in 2011$ e Population - mid-year (thousands). Há dados disponíveis desde do século XIX ou até mesmo de períodos anteriores (Para o Brasil em específico há dados desde 1800). Para mais detalhes sobre a metodologia de estimação/retropolação consultar a documentação no Github.
