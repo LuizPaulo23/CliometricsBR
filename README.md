@@ -59,7 +59,7 @@
 devtools::install_github(<span class="hljs-string">"LuizPaulo23/CliometricsBR"</span>, dependencies = T)
 </code></pre>
 <h1 class="code-line" data-line-start=68 data-line-end=69 ><a id="Utilizando_o_CliometricsBR_68"></a>🏄🏽‍♀️Utilizando o {CliometricsBR}</h1>
-<p class="has-line-data" data-line-start="70" data-line-end="71">Para importar todos os dados de exportações disponíveis no pacote:</p>
+<p class="has-line-data" data-line-start="70" data-line-end="71">Não esqueça de  :: após o nome do pacote nas funções. Dito isso, para importar todos os dados de exportações disponíveis no pacote:</p>
 <pre><code class="has-line-data" data-line-start="74" data-line-end="78" class="language-sh"><span class="hljs-comment"># Puxando todas as séries de exportações </span>
 exports_all = CliometricsBR::get_exports(series = <span class="hljs-string">"all"</span>, 
                                          start = <span class="hljs-number">1821</span>, end = <span class="hljs-number">1900</span>) 
@@ -122,6 +122,10 @@ teste_mesa_all = get.DBMaddison(country = <span class="hljs-string">"all"</span>
 <tr>
 <td>stats</td>
 <td>4.2.2</td>
+</tr>
+<tr>
+<td>stringr</td>
+<td>1.5.0</td>
 </tr>
 </tbody>
 </table>
