@@ -1,4 +1,4 @@
-#' @title Maddison Project Database 2020
+#' @title Dados - Cotações/Preço
 #'
 #' @name get_prices
 #'
