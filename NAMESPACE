@@ -4,8 +4,7 @@ import(tidyverse)
 import(rvest)
 import(httr)
 import(tibble)
-import(dplyr)
-import(janitor)
 import(readxl)
-import(stats)
 import(stringr)
+
+
