@@ -46,6 +46,14 @@ get_exports <- function(series = as.character(),
                         start = as.numeric(),
                         end = as.numeric()){
 
+ # Validando parametro series
+
+        if(length(series) == 0){
+
+          stop("ERRO: parâmetro series não encontrado")
+
+        }
+
 # Travando verificação de data
 
       if (length(start) == 0 | length(end) == 0) {
