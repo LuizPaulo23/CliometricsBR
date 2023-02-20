@@ -15,7 +15,7 @@ get.DBMaddison(
 
 \item{start}{representa o início do período/ano selecionado}
 
-\item{rend}{representa o fim do período/ano selecionado}
+\item{end}{representa o fim do período/ano selecionado}
 }
 \value{
 Retorna um data.frame com os series selecionadas

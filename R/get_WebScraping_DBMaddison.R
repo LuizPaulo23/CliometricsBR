@@ -11,7 +11,7 @@
 #'
 #' @param country representa o nome do país desejado. O parâmetro aceita mais de um nome por vez ou, até mesmo, o nome de todas as séries simultaneamente passando no parâmetro country = \code{"all"};
 #' @param start representa o início do período/ano selecionado
-#' @param rend representa o fim do período/ano selecionado
+#' @param end representa o fim do período/ano selecionado
 #'
 #' @author Luiz Paulo Tavares Gonçalves
 #'
