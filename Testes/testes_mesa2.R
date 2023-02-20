@@ -1,18 +1,21 @@
 # Testando a instalação, revisando documentação e bugs ///
+
 rm(list = ls())
+
 # Testando em ambiente limpo ----------------------------
-# install.packages("devtools")
+#/ Teste em R.4.2.2 /CLOUD/PROJECT
 # install.packages("devtools") // devtools devidamente instalado
 # devtools::install_github("LuizPaulo23/CliometricsBR", dependencies = T)
+
 library(CliometricsBR)
-CliometricsBR::load_db()
+db = CliometricsBR::load_db()
 
 #\\INSTALADO COM SUCESSO
 # REVISANDO DOCUMENTAÇÃO
 
 CliometricsBR::load_db() # okay
 CliometricsBR::get_prices() # Corrigir título
-CliometricsBR::get_slavery() # okay
+CliometricsBR::get_slavery() # bug
 CliometricsBR::get.DBMaddison() # okay
 CliometricsBR::get_exports() # okay
 
@@ -20,10 +23,11 @@ CliometricsBR::get_exports() # okay
 # ACEITANDO PARÂMETROS VAZIOS
 # Função get_slavery também
 
-
+CliometricsBR::get_prices() # OKAY
+CliometricsBR::get_slavery() # OKAY
 
 # REPLICAR TESTE DE MESA EM AMBIENTE LIMPO ------------------
-# Puxando todas as séries de exportação -------------------------------------------------------
+# Puxando todas as séries de exportação -----------------------
 # test =  CliometricsBR::load_db()
 
 CliometricsBR::get_exports(series = "all",
@@ -47,7 +51,10 @@ CliometricsBR::get_exports(series = "Sugar",
 
 # Com apenas um produto selecionado ------------------------------------------------------
 
-export_sugar = CliometricsBR::get_exports(series = "Sugar", start = 1821,  end = 1855)
+export_sugar = CliometricsBR::get_exports(series = "Sugar",
+                                          start = 1821,  end = 1855)
+
+CliometricsBR::get_exports(start = 1821,  end = 1855)
 
 # Tentar quebrar a função passando bug em series ------------------------------------------
 
@@ -83,12 +90,16 @@ teste_mesa_filter = CliometricsBR::get.DBMaddison(country = c("USAfdsf", "BRAwww
 teste_mesa_filter = CliometricsBR::get.DBMaddison(country = c("USAfdsf", "BRAwww", "AsssRG"),
                                                   start = 1800, end = 1900)
 
+
+bug = get.DBMaddison(start = 1800, end = 1900)
+
 # Tudo errado, retorna vazio
 # !Corrigir - lembrar que está formato de painel
 
 # Slave --------------------------------------------------------------------------------------
 
 # Todas as regiões
+
 CliometricsBR::get_slavery(region = "all")
 region_slave_all = CliometricsBR::get_slavery(region = "all")
 
@@ -99,6 +110,7 @@ region_slave_select = CliometricsBR::get_slavery(region = c("Bahia", "Total"))
 # Apenas um região
 
 region_slave = CliometricsBR::get_slavery(region = "Total")
+region_slave = CliometricsBR::get_slavery()
 
 # Passando nome errado
 
@@ -108,6 +120,8 @@ region_slaveBUG = CliometricsBR::get_slavery(region = c("Bahia", "vvvl"))
 
 CliometricsBR::get_prices(units = "all")
 
+CliometricsBR::get_prices()
+
 teste_prices_all = CliometricsBR::get_prices(units = "all")
 
 teste_prices_select = CliometricsBR::get_prices(units = "Kilo")
@@ -115,4 +129,12 @@ teste_prices_select = CliometricsBR::get_prices(units = "Kilo")
 teste_prices= CliometricsBR::get_prices(units = c("Kilo", "Bag"))
 
 teste_pricesBUG = CliometricsBR::get_prices(units = c("zzzzzzzxs", "Bag"))
+
+# Função get_censo1872 ficará para a próxima versão!!!
+
+# Função get_censo1872
+#install.packages("RSQLite")
+#library(RSQLite)
+# CliometricsBR::get_censo1872()
+
 
