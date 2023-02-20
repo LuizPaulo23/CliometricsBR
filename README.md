@@ -42,7 +42,7 @@
 </ul>
 <p class="has-line-data" data-line-start="46" data-line-end="47">Em terceiro, representa os dados do Maddison Project Database 2020. No {CliometricsBR} conta com sua versão 2020 ataualizada com os dados:</p>
 <ul>
-<li class="has-line-data" data-line-start="48" data-line-end="49">gdpcc</li>
+<li class="has-line-data" data-line-start="48" data-line-end="49">gdppc</li>
 <li class="has-line-data" data-line-start="49" data-line-end="51">population</li>
 </ul>
 <p class="has-line-data" data-line-start="51" data-line-end="52">Respectivamente, o PIB per capita real (U$ 2011) e população estimada para mais de 169 países ao longo da história. Para o caso do Brasil, a série histórica inicia em 1800. Observe que esse é o único conjunto de dados do {CliometricsBR} em formato de painel, isto é, um cross-section com centenas de países ao longo de uma série temporal – esses dados foram obtidos via Web Scraping. Para mais informações sobre a metodologia de estimação/retropolação, consultar:</p>
