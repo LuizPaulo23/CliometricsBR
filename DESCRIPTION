@@ -17,6 +17,7 @@ Imports:
   janitor (>= 2.2.0),
   httr (>= 1.4.4),
   readxl (>= 1.4.1),
-  stats (>= 4.2.2)
+  stats (>= 4.2.2), 
+  purrr (>= 1.0.1)
 
 
