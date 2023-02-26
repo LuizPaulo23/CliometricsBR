@@ -1,6 +1,6 @@
 #' @title Séries históricas disponíveis no IPEAdata
 #'
-#' @name ipea_series
+#' @name get_metadadosIPEA
 #'
 #' @description A função busca retorna todas as séries históricas disponíveis mo IPEAdata via API
 #'
@@ -16,13 +16,13 @@
 #' @examples
 #' \dontrun{
 #'
-#'   series_available = ipea_series()
+#'   series_available = get_metadadosIPEA()
 #'
 #' }
 #'
 #' @export
 
-ipea_series  <- function(){
+get_metadadosIPEA  <- function(){
 
 # Chamando API, Verbo GET
 
