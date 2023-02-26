@@ -2,7 +2,9 @@
 #'
 #' @name get_metadadosIPEA
 #'
-#' @description A função busca retorna todas as séries históricas disponíveis mo IPEAdata via API
+#' @description A função busca retorna todas as séries históricas disponíveis no IPEAdata via API
+#'
+#' @param
 #'
 #' @author Luiz Paulo Tavares Gonçalves
 #'
@@ -16,7 +18,7 @@
 #' @examples
 #' \dontrun{
 #'
-#'   series_available = get_metadadosIPEA()
+#'   series_available = CliometricsBR::get_metadadosIPEA()
 #'
 #' }
 #'
@@ -68,4 +70,5 @@ metadados_ipea <- purrr::map_df(metadados[["value"]], function(x) {
         return(metadados_ipea)
 
 }
+
 
