@@ -6,10 +6,11 @@ import(httr)
 import(tibble)
 import(readxl)
 import(stringr)
+
+# Functions
+
 export(get.DBMaddison)
-export(get_exports)
 export(get_metadadosIPEA)
-export(get_prices)
 export(get_seriesIPEA)
 export(get_slavery)
 export(load_db)

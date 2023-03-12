@@ -7,7 +7,7 @@
 #' \code{gdppc} e
 #' \code{pop}.
 #'
-#' São respestivamente: Real GDP per capita in 2011$ e Population - mid-year (thousands). Há dados disponíveis desde do século XIX ou até mesmo de períodos anteriores (Para o Brasil em específico há dados desde 1800). Para mais detalhes sobre a metodologia de estimação/retropolação consultar a documentação no Github.
+#' Respectivamente, o PIB per capita real (U$ 2011) e população estimada para mais de 169 países ao longo da história. Para o caso do Brasil, a série histórica inicia em 1800. Observe que esse é o único conjunto de dados do {CliometricsBR} em formato de painel, isto é, um cross-section com centenas de países ao longo de uma série temporal – esses dados foram obtidos via Web Scraping.
 #'
 #' @param country representa o nome do país desejado. O parâmetro aceita mais de um nome por vez ou, até mesmo, o nome de todas as séries simultaneamente passando no parâmetro country = \code{"all"};
 #' @param start representa o início do período/ano selecionado
@@ -19,7 +19,7 @@
 #'
 #'  O Maddison Project Database fornece informações sobre crescimento econômico comparativo e níveis de renda no longo prazo. A versão 2020 deste banco de dados abrange 169 países e o período até 2018.
 #'
-#' @return Retorna um data.frame com os series selecionadas
+#' @return Retorna um data.frame com as series selecionadas
 #'
 #' @examples
 #' \dontrun{
@@ -45,7 +45,7 @@ get.DBMaddison = function(country = as.character(),
 
 # Validação country
 
-            if(length(country) == 0){
+            if(is.null(country) | length(country) == 0){
 
               stop("ERRO: Parâmetro country não encontrado")
             }
@@ -55,12 +55,14 @@ get.DBMaddison = function(country = as.character(),
 # Verificação dos inputs de data
 
       if (length(start) == 0 | length(end) == 0) {
+
         stop("ERRO: Parâmetro start e/ou end não encontrado!
   Por favor, selecione um período start-end válido")
-    }
-      if (is.na(start) | is.na(end)) {
+
+    } else if (is.na(start) | is.na(end)) {
+
         stop("ERRO: NA's nos parâmetros start e/ou end")
-      }
+}
 
 input_country <- tibble::tibble(country) # Guardando os países selecionados
 cat("Países selecionados:", input_country$country)
