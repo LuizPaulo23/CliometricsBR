@@ -1,122 +1,92 @@
 #' @title Séries históricas disponíveis no IPEAdata
 #'
-#' @name
+#' @name get_seriesIPEA
 #'
 #' @description A função busca retorna todas as séries históricas disponíveis no IPEAdata via API
 #'
-#' @param
+#' @param codes representa o parâmetro que recebe o código da série
 #'
 #' @author Luiz Paulo Tavares Gonçalves
 #'
 #' @details
 #'
-#' Não há parâmetro na função, basta chamar a função que irá retornar todas as séries históricas disponíveis
 #'
-#' @return Retorna um data.frame com todas as séries históricas disponíveis
+#' @return Retorna um data.frame com as séries históricas selecionadas
 #'
 #'
 #' @examples
 #' \dontrun{
 #'
-#'   series_available = CliometricsBR::get_metadadosIPEA()
+#'   series_all = CliometricsBR::get_seriesIPEA(codes = c("HIST_ACOV",
+#'                                                        "HIST_ACUCARQ",
+#'                                                        "HIST_ACUCARV"))
 #'
 #' }
 #'
 #' @export
 
-code = c("HIST_AGUARV", "HIST_BABV")
 
-get_seriesIPEA <- function(code = as.character()){
+get_seriesIPEA <- function(codes = as.character()){
 
-series = tibble::tibble(code) # Guardando os códigos
-series_list = list()
+# Validação
 
-for (i in 1:length(series$code)) {
+  if (is.null(codes) || length(codes) == 0) {
 
-# Chamando a API, verbo GET
-code_select <- httr::VERB("GET", url = paste0("http://www.ipeadata.gov.br/api/odata4/ValoresSerie(SERCODIGO='",
-                                              i, "')")) %>% httr::content("parsed")
+    stop("ERRO: character nulo.")
 
-series_list[i] = code_select
+  } else if (is.numeric(codes)) {
+
+    stop("ERRO: código numérico não é válido")
+}
+
+
+# criar um data.frame vazio para armazenamento
+
+requests <- data.frame(code_series = character(),
+                       date = character(),
+                       value = numeric(),
+                       stringsAsFactors = FALSE)
+
+# loop sobre os códigos de série e extrair as informações
+
+for (codes in codes) {
+
+  # Chamando API, verbo GET
+  response <- httr::VERB("GET", url = paste0("http://www.ipeadata.gov.br/api/odata4/ValoresSerie(SERCODIGO='", codes, "')")) %>%
+              httr::content("parsed")
+
+# extrair informações relevantes para cada observação
+
+  for (i in seq_along(response$value)) {
+
+    code_series <- response$value[[i]]$SERCODIGO
+    date <- response$value[[i]]$VALDATA
+    value <- response$value[[i]]$VALVALOR
+
+# adicionar informações ao data.frame
+
+    requests <- rbind(requests,
+                      data.frame(code_series,
+                                 date,
+                                 value,
+                                 stringsAsFactors = FALSE))
+
+    requests$date <- as.Date(substr(requests$date, 1, 10))
+
+
+    }
 
   }
+
+    if(is.null(requests$code_series) | length(requests$code_series) == 0){
+
+      stop("ERRO: retornou um data.frame nulo, código inexistente")
+
+    }
+
+    return(requests)
 
 }
 
 
-test = get_seriesIPEA()
-library(tibble)
-library(httr)
-library(dplyr)
 
-get_seriesIPEA <- function(code = as.character()) {
-
-  series_list <- list() # criar uma lista vazia para armazenar os data.frames
-
-  for (i in seq_along(code)) {
-    url <- paste0("http://www.ipeadata.gov.br/api/odata4/ValoresSerie(SERCODIGO='", code[i], "')")
-
-    # fazer a chamada para a API
-    response <- httr::GET(url)
-
-    # extrair os dados da resposta
-    content <- httr::content(response, "parsed")
-
-    # transformar os dados em um data.frame e adicionar à lista
-    series_list[[i]] <- as.data.frame(content$value)
-  }
-
-  # combinar todos os data.frames da lista em um único data.frame
-  result <- dplyr::bind_rows(series_list)
-
-  return(result)
-}
-
-
-test = get_seriesIPEA(code = "")
-
-
-library(tibble)
-library(httr)
-library(dplyr)
-
-library(tibble)
-library(httr)
-library(dplyr)
-
-library(dplyr)
-library(tidyr)
-
-get_seriesIPEA <- function(code = character()){
-
-  series <- tibble::tibble(code)
-
-  dados <- tibble()
-
-  for (i in 1:length(series$code)) {
-
-    url <- paste0("http://www.ipeadata.gov.br/api/odata4/ValoresSerie(SERCODIGO='",
-                  series$code[i], "')")
-
-    dados_serie <- httr::GET(url) %>% httr::content("parsed")
-
-    dados_serie <- tibble::as_tibble(dados_serie$value)
-
-    dados_serie <- dados_serie %>%
-      dplyr::select(SERCODIGO, VALDATA, VALVALOR)
-
-    dados <- dplyr::bind_rows(dados, dados_serie)
-
-  }
-
-  dados <- dados %>%
-    tidyr::pivot_longer(cols = -c(SERCODIGO, VALDATA), names_to = "variable", values_to = "value") %>%
-    tidyr::separate(variable, into = c("variable", "series"), sep = "(?<=\\D)(?=\\d)") %>%
-    tidyr::complete(series, VALDATA, fill = list(value = NA_real_)))
-
-return(dados)
-
-}
-
-
-test_mesa = get_seriesIPEA(code = "HIST_XCAFEQ")
