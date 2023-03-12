@@ -137,4 +137,29 @@ teste_pricesBUG = CliometricsBR::get_prices(units = c("zzzzzzzxs", "Bag"))
 #library(RSQLite)
 # CliometricsBR::get_censo1872()
 
+# Testando API - IPEA
 
+# Puxando metadados das séries disponíveis -----------------------------------
+
+metadados_null = CliometricsBR::get_metadadosIPEA()
+metadados_numeric = CliometricsBR::get_metadadosIPEA(codes = 123)
+metadados_all = CliometricsBR::get_metadadosIPEA(codes = "all")
+metadados_select = CliometricsBR::get_metadadosIPEA(codes = "HIST_ACOV")
+
+metadados_select_mult = CliometricsBR::get_metadadosIPEA(codes = c("HIST_ACOV",
+                                                                   "HIST_ACUCARQ",
+                                                                   "HIST_ACUCARV"))
+
+metadados_bug = CliometricsBR::get_metadadosIPEA(codes = "xzxwx")
+
+# Função IPEA Series ---------------------------------------------------------
+
+series_null = CliometricsBR::get_seriesIPEA()
+series_numeric = CliometricsBR::get_seriesIPEA(codes = 123)
+series_select = CliometricsBR::get_seriesIPEA(codes = "HIST_ACOV")
+
+series_select_mult = CliometricsBR::get_seriesIPEA(codes = c("HIST_ACOV",
+                                                            "HIST_ACUCARQ",
+                                                            "HIST_ACUCARV"))
+
+series_bug = CliometricsBR::get_seriesIPEA(codes = "fdfd")
