@@ -20,7 +20,7 @@
 #'
 #' @details
 #'
-#' @return Retorna um data.frame com os series selecionadas
+#' @return Retorna um data.frame com as series selecionadas
 #'
 #' @examples
 #' \dontrun{
@@ -43,7 +43,7 @@ get_slavery <- function(region = as.character()){
 
 # Validação de parâmetro
 
-  if(length(region) == 0){
+  if(is.null(region) | length(region) == 0){
 
     stop("ERRO: parâmentro region não encontrado")
 
