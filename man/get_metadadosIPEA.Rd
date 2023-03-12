@@ -2,23 +2,25 @@
 % Please edit documentation in R/ipea_metadados.R
 \name{get_metadadosIPEA}
 \alias{get_metadadosIPEA}
-\title{Séries históricas disponíveis no IPEAdata}
+\title{Metadados das séries históricas disponíveis no IPEAdata}
 \usage{
-get_metadadosIPEA()
+get_metadadosIPEA(codes = as.character())
+}
+\arguments{
+\item{codes}{É o parâmetro que recebe o código da série, no qual pode ser passado como input "all" quando desejado o metadado de todas as séries}
 }
 \value{
-Retorna um data.frame com todas as séries históricas disponíveis
+Retorna um data.frame com os metadados
 }
 \description{
-A função busca retorna todas as séries históricas disponíveis no IPEAdata via API
-}
-\details{
-Não há parâmetro na função, basta chamar a função que irá retornar todas as séries históricas disponíveis
+A função busca retorna os metadados das séries históricas disponíveis no IPEAdata via API
 }
 \examples{
 \dontrun{
 
-  series_available = CliometricsBR::get_metadadosIPEA()
+  metadados_select_mult = CliometricsBR::get_metadadosIPEA(codes = c("HIST_ACOV",
+                                                                     "HIST_ACUCARQ",
+                                                                      "HIST_ACUCARV"))
 
 }
 
