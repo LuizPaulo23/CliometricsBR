@@ -59,7 +59,7 @@ get.DBMaddison = function(country = as.character(),
         stop("ERRO: Parâmetro start e/ou end não encontrado!
   Por favor, selecione um período start-end válido")
 
-    } else if (is.na(start) | is.na(end)) {
+    } else if (is.null(start) | is.null(end)) {
 
         stop("ERRO: NA's nos parâmetros start e/ou end")
 }
@@ -94,11 +94,21 @@ cat("Países selecionados:", input_country$country)
 
            }
 
-
       db_maddison = db_maddison %>%
-                    dplyr::filter(countrycode %in% c(input_country$country)) %>%
-                    dplyr::filter(year >= start &
-                                    year <= end)
+                    dplyr::filter(countrycode %in% c(input_country$country))
+
+
+      if(start < min(as.numeric(db_maddison$year)) | end > max(db_maddison$year)){
+
+        stop("ERRO: Parâmetros start e end disponíveis de acordo com as séries selecionadas, respectivamente são:", min(db_maddison$year), "-", max(db_maddison$year))
+
+      }else{
+
+        db_maddison = db_maddison %>%
+                      dplyr::filter(year >= start & year <= end)
+
+
+      }
 
 
      return(db_maddison)
