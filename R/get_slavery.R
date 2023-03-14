@@ -49,7 +49,11 @@ get_slavery <- function(region = as.character()){
 
   }
 
-      slavery = CliometricsBR::load_db() %>%
+
+  Db_cliometrics <- base::readRDS(system.file("data/data.rds",
+                                              package = "CliometricsBR"))
+
+      slavery = Db_cliometrics %>%
                 janitor::clean_names() %>%
                 dplyr::select(starts_with("slave"),
                               starts_with("data")) %>%
@@ -62,26 +66,24 @@ input_region = tibble::tibble(region)
 
       if(all(region == "all")){
         return(slavery)
-      } else {
-
-        if(any(!(input_region$region %in%  colnames(slavery)))){
+      } else if(any(!(input_region$region %in%  colnames(slavery)))){
 
           stop("ERRO: região selecionada inválida")
 
+      } else{
+
+        region_slavery = slavery %>%
+                          dplyr::select(Data, c(input_region$region))
+
+
         }
-
-                       region_slavery = slavery %>%
-                                        dplyr::select(Data, c(input_region$region))
-
 
 
             return(region_slavery)
 
-     }
+  }
 
 
-
-}
 
 
 

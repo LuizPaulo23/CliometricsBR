@@ -26,6 +26,10 @@ all_series = CliometricsBR::get_seriesIPEA(codes = "all")
 # Problema de conexão: Connection timed out after 10001 milliseconds
 select_series = CliometricsBR::get_seriesIPEA(codes = "HIST_ACOV")
 
+series_select_multi = CliometricsBR::get_seriesIPEA(codes = c("HIST_ACOV",
+                                                             "HIST_ACUCARQ",
+                                                              "HIST_ACUCARV"))
+
 # ------------------------------------------------------------------
 # Testando CliometricsBR::get_slavery()
 
