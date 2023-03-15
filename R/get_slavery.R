@@ -39,9 +39,11 @@
 #'
 #' @export
 
-get_slavery <- function(region = as.character()){
+get_slavery <- function(region = as.character(),
+                        start = as.numeric(),
+                        end = as.numeric()){
 
-# Validação de parâmetro
+# Validação de parâmetro region
 
   if(is.null(region) | length(region) == 0){
 
@@ -64,7 +66,24 @@ get_slavery <- function(region = as.character()){
 
 input_region = tibble::tibble(region)
 
+# Validação dos inputs start e end
+
+    if(length(start) == 0 | length(end) == 0){
+      if(start < min(slavery$Data) | end > max(slavery$Data)){
+        stop("ERRO: parâmetros start e end inconsistentes")
+      }
+
+  }
+
+
+# Condicional
+
       if(all(region == "all")){
+
+        slavery <- slavery %>%
+                   dplyr::filter(start >= Data &
+                                   end <= Data)
+
         return(slavery)
       } else if(any(!(input_region$region %in%  colnames(slavery)))){
 
@@ -73,7 +92,9 @@ input_region = tibble::tibble(region)
       } else{
 
         region_slavery = slavery %>%
-                          dplyr::select(Data, c(input_region$region))
+                          dplyr::select(Data, c(input_region$region)) %>%
+                          dplyr::filter(start >= Data &
+                                          end <= Data)
 
 
         }
