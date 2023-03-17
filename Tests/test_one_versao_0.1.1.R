@@ -26,10 +26,20 @@ all_series = CliometricsBR::get_seriesIPEA(codes = "all")
 # Problema de conexão: Connection timed out after 10001 milliseconds
 select_series = CliometricsBR::get_seriesIPEA(codes = "HIST_ACOV")
 
+series_select_multi = CliometricsBR::get_seriesIPEA(codes = c("HIST_ACOV",
+                                                             "HIST_ACUCARQ",
+                                                              "HIST_ACUCARV"))
+
 # ------------------------------------------------------------------
 # Testando CliometricsBR::get_slavery()
 
-all_slaverry = CliometricsBR::get_slavery(region = "all")
+all_slaverry = CliometricsBR::get_slavery(region = 123,
+                                          start = "aaa",
+                                          end = 142)
+
+all_slaverry = CliometricsBR::get_slavery(region = "all",
+                                          start = 1800,
+                                          end = 1851)
 
 select_slavery = CliometricsBR::get_slavery(region = "Bahia")
 
@@ -40,6 +50,10 @@ bug_slavery = CliometricsBR::get_slavery(region = c("Bahia",
                                                     "sadasdf"))
 
 bug_slavery = CliometricsBR::get_slavery(region = "sadfd")
+
+test = get_slavery(region = c("Total", "Bahia"),
+                   start = 1800,
+                   end = 1835)
 
 # Log: okay - get_slavery
 

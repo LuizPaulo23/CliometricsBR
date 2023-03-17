@@ -15,6 +15,8 @@
 #' As quais representam o número estimado de escravos importados para cada região do Brasil e o Total. Os dados estimados são da The SlaveVoyages. Para mais detalhes consultar a documentação no Github.
 #'
 #' @param region Representa o nome da região desejada. O parâmetro aceita mais de um nome por vez ou, até mesmo, o nome de todas as regiões simultaneamente passando no parâmetro region = \code{"all"};
+#' @param start representa o início do período/ano selecionado
+#' @param end representa o fim do período/ano selecionado
 #'
 #' @author Luiz Paulo Tavares Gonçalves
 #'
@@ -27,11 +29,15 @@
 #'
 #' # Todas as regiões
 #'
-#'  region_slave_all = CliometricsBR::get_slavery(region = "all")
+#'  region_slave_all = CliometricsBR::get_slavery(region = "all",
+#'                                                start = 1800,
+#'                                                end = 1851)
 #'
 # # Regiões selecionadas
 #'
-#' region_slave_select = CliometricsBR::get_slavery(region = c("Bahia", "Total"))
+#' region_slave_select = CliometricsBR::get_slavery(region = c("Bahia", "Total"),
+#'                                                   start = 1800,
+#'                                                   end = 1831)
 #'
 #'
 #'
@@ -39,17 +45,32 @@
 #'
 #' @export
 
-get_slavery <- function(region = as.character()){
+get_slavery <- function(region = as.character(),
+                        start = as.numeric(),
+                        end = as.numeric()){
 
-# Validação de parâmetro
+# Validação de inputs nulos
 
-  if(is.null(region) | length(region) == 0){
+  if(is.numeric(region)){
 
-    stop("ERRO: parâmentro region não encontrado")
+    stop("ERRO: parâmetro region não aceita tipo numérico")
 
-  }
+    } else if(!length(start) | is.character(start)) {
 
-      slavery = CliometricsBR::load_db() %>%
+      stop("ERRO: parâmetro start numérico não encontrado")
+
+  } else if(!length(end) | is.character(end)) {
+
+        stop("ERRO: parâmetro end numérico não encontrado")
+}
+
+
+# import dataset
+
+  Db_cliometrics <- base::readRDS(system.file("data/data.rds",
+                                              package = "CliometricsBR"))
+
+      slavery = Db_cliometrics %>%
                 janitor::clean_names() %>%
                 dplyr::select(starts_with("slave"),
                               starts_with("data")) %>%
@@ -60,28 +81,44 @@ get_slavery <- function(region = as.character()){
 
 input_region = tibble::tibble(region)
 
+# Validação dos inputs start e end
+
+  if(start < min(slavery$Data) | end > max(slavery$Data)){
+
+      cat("start mínimo = ", min(slavery$Data), "\n")
+      cat("end máximo = ", max(slavery$Data), "\n")
+      stop("ERRO: fora dos limites")
+ }
+
+# Condicional
+
       if(all(region == "all")){
+
+        slavery <- slavery %>%
+                   dplyr::filter(Data >= start &
+                                   Data <= end)
+
         return(slavery)
-      } else {
+      } else if(any(!(input_region$region %in% colnames(slavery)))){
 
-        if(any(!(input_region$region %in%  colnames(slavery)))){
+          stop("ERRO: região selecionada inexistente")
 
-          stop("ERRO: região selecionada inválida")
+      } else{
+
+        region_slavery = slavery %>%
+                          dplyr::select(Data, c(input_region$region)) %>%
+                          dplyr::filter(Data >= start &
+                                          Data <= end)
+
 
         }
-
-                       region_slavery = slavery %>%
-                                        dplyr::select(Data, c(input_region$region))
-
 
 
             return(region_slavery)
 
-     }
+  }
 
 
-
-}
 
 
 
